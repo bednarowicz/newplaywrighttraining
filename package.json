@@ -1,0 +1,29 @@
+{
+  "name": "pwapptests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pageObjects-chrome": "npx playwright test usepageobjects.spec.ts --project=chromium",
+    "pageObjects-firefox": "npx playwright test usepageobjects.spec.ts --project=firefox",
+    "pageObjects-all-sequential": "npm run pageObjects-chrome && pageObjects-firefox",
+    "pageObjects-all-parallel": "npm run pageObjects-chrome & pageObjects-firefox",
+    "pageObjects-process-env-changed-bash": "URL=http://incorrecturls npx playwright test autoWaiting.spec.ts",
+    "usingOtherConfig": "npx playwright test --config=playwright.config.prod.ts",
+    "runningOnlyTaggedTest":"npx playwright test --grep @smoke",
+    "runningOnlyMultiplyTaggedTest":"npx playwright test --grep '@smoke|@block'",
+    "updateSnapshots": "npx playwright test --update-snapshots",
+    "docker compose (not npm scirpt run separetly)": "docker-compose up --build",
+    "docker images (not npm scirpt run separetly)" : "docker images",
+    "docer (not npm scirpt run separetly)": "docker build -t testname . "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5"
+  }
+}
